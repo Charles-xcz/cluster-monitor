@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ustc.sa.mapper.MachineInfoMapper">
+    <insert id="add" parameterType="com.ustc.sa.pojo.MachineInfo">
+        insert into machineinfo (name, heart,time,ipAddr)
+        values (#{name}, #{heart},#{time},#{ipAddr})
+    </insert>
+    <select id="queryByTime" parameterType="Long" resultType="com.ustc.sa.pojo.MachineInfo">
+        select *from machineinfo where time > #{time}
+    </select>
+    <select id="queryAll" resultType="com.ustc.sa.pojo.MachineInfo">
+        select *from machineinfo
+    </select>
+</mapper>

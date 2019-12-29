@@ -1,0 +1,25 @@
+server:
+  port: 80
+mysql:
+  ip: localhost
+  port: 3306
+
+
+
+
+spring:
+  application:
+    name: webserver
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql.ip}:${mysql.port}/labofsa?serverTimezone=UTC&useUnicode=true&charcterEncoding=utf-8
+    username: root
+    password: 123456
+mybatis:
+  type-aliases-package: com.ustc.sa.pojo
+  mapper-locations: classpath:mybatis.mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+
